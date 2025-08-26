@@ -1,0 +1,1 @@
+g++ -std=gnu++17 -O2 -pipe -pthread -o list_sessions_ssh list_sessions_ssh.cpp

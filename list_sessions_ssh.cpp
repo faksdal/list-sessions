@@ -22,8 +22,12 @@ int main() {
     futs.reserve(hosts.size());
     for (auto& h : hosts) {
         // Uses agent/known_hosts; add "-i ~/.ssh/id_ed25519" if you want a specific key.
-        string ssh = "ssh -o BatchMode=yes -o ConnectTimeout=5 " + user + "@" + h +
-                     " " + remote_cmd + " 2>/dev/null";
+        string ssh = "ssh -o BatchMode=yes -o ConnectTimeout=5 "
+            + user + "@"
+            + h
+            + " "
+            + remote_cmd + " 2>/dev/null";
+
         futs.emplace_back(async(launch::async, run_cmd, ssh));
     }
 
