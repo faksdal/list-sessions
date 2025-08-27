@@ -29,7 +29,20 @@ async def run_one(host):
 
 
 async def main():
-    results = await asyncio.gather(*(run_one(h) for h in HOSTS))
+
+    offlinefile = True
+    OFFLINE_FILE_NAME = "sessions.txt"  # raw stdout captured once
+    if offlinefile:
+        text = Path(OFFLINE_FILE_NAME).read_text()
+        results = [{
+            "host": "10.0.109.33",
+            "rc": 0,
+            "err": "",
+            "out": text,
+        }]
+    elif not offlinefile:
+        results = await asyncio.gather(*(run_one(h) for h in HOSTS))
+
 
     unique, seen = [], set()
     for r in results:
