@@ -33,6 +33,7 @@ async def main():
 
     unique, seen = [], set()
     for r in results:
+        host = r["host"]
         for line in r["out"].splitlines():
             sess = line.split("_", 1)[0]
             if sess and sess not in seen:
