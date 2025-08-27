@@ -37,7 +37,7 @@ async def main():
             sess = line.split("_", 1)[0]
             if sess and sess not in seen:
                 seen.add(sess)
-                unique.append(sess)
+                unique.append(f"{host} {sess}")
 
     print("\n".join(unique))
 
