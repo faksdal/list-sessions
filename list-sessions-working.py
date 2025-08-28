@@ -1,4 +1,9 @@
 import asyncio, asyncssh, sys
+from pathlib import Path
+
+#from twisted.words.im.locals import OFFLINE
+
+
 
 from collections import Counter
 
@@ -29,7 +34,6 @@ async def run_one(host):
 
 
 async def main():
-
     offlinefile = True
     OFFLINE_FILE_NAME = "sessions.txt"  # raw stdout captured once
     if offlinefile:
